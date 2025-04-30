@@ -31,7 +31,7 @@
     "react-particles": "^2.12.2",
     "stylelint": "^16.19.1",
     "stylelint-config-standard": "^38.0.0",
-    "stylelint-config-tailwindcss": "^1.0.0",
+    "stylelint-config-tailwindcss": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -47,12 +47,10 @@
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-prettier": "^5.2.6",
-    "husky": "^9.1.7",
     "lint-staged": "^13.1.0",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "stylelint": "^16.19.1",
     "stylelint-config-standard": "^38.0.0",
     "stylelint-config-tailwindcss": "^1.0.0",
     "tailwindcss": "^4.1.4",

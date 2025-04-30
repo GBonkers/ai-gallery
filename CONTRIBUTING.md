@@ -5,16 +5,19 @@ Thank you for your interest in improving this project.
 ## Setup
 
 ### 1. Install dependencies
+
 ```bash
 npm ci
 ```
 
 ### 2. Run the development server
+
 ```bash
 npm run dev
 ```
 
 ### 3. Lint and format your code
+
 ```bash
 npm run lint
 npm run format
