@@ -23,8 +23,6 @@
     ]
   },
   "dependencies": {
-    "@tsparticles/engine": "^3.8.1",
-    "@tsparticles/react": "^3.0.0",
     "husky": "^9.1.7",
     "next": "15.3.1",
     "react": "^19.0.0",
@@ -34,7 +32,6 @@
     "stylelint": "^16.19.1",
     "stylelint-config-standard": "^38.0.0",
     "stylelint-config-tailwindcss": "^1.0.0",
-    "tsparticles": "^3.8.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
