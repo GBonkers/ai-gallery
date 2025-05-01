@@ -8,9 +8,6 @@ const config = {
   images: {
     domains: ['github.com'],
   },
-  experimental: {
-    importGlob: true,
-  },
   // Properly type the config parameter instead of `any`
   webpack(webpackConfig: Configuration) {
     webpackConfig.resolve = {
