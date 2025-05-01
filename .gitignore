@@ -178,3 +178,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 >>>>>>> acd08ba3781140894398cfd7ee5e1365a1e1a256
+.env*.local

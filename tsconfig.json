@@ -30,6 +30,8 @@
     "src",
     "**/*.ts",
     "**/*.tsx",
+    "scripts/**/*",
+    "prisma/**/*",
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]

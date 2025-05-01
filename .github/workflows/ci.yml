@@ -27,6 +27,12 @@ jobs:
       # 3) Install dependencies
       - run: npm ci
 
+      # 4) Sync agents metadata into the database
+      - name: Sync agents to DB
+        run: npm run sync:agents
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
       # 4) Run ESLint (JS/TS)
       - run: npm run lint
 

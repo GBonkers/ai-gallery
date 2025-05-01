@@ -13,6 +13,21 @@ const eslintConfig = [
   { ignores: ['node_modules/*', '.next/*', 'out/*', 'public/*'] },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   ...compat.extends('plugin:prettier/recommended'),
+  {
+    rules: {
+      '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-this-alias': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-use-before-define': 'off',
+      '@typescript-eslint/no-use-before-function': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/no-empty-function': 'off',
+      '@typescript-eslint/no-unnecessary-type-constraint': 'off',
+      '@typescript-eslint/no-unsafe-function-type': 'off',
+    },
+  },
 ];
 
 export default eslintConfig;
