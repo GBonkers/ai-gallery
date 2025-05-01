@@ -15,32 +15,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1) Check out code
+      # Check out code
       - uses: actions/checkout@v3
 
-      # 2) Set up Node.js
+      # Set up Node.js
       - uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: 'npm'
 
-      # 3) Install dependencies
+      # Install dependencies
       - run: npm ci
 
-      # 4) Sync agents metadata into the database
+      # Generate Prisma client
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      # Sync agents metadata into the database
       - name: Sync agents to DB
         run: npm run sync:agents
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
-      # 4) Run ESLint (JS/TS)
+      # Run ESLint (JS/TS)
       - run: npm run lint
 
-      # 5) Run StyleLint (CSS)
+      # Run StyleLint (CSS)
       - run: npm run lint:style
 
-      # 6) Check Prettier formatting (will fail if unformatted)
+      # Check Prettier formatting (will fail if unformatted)
       - run: npx prettier --check .
 
-      # 7) Build your Next.js app
+      # Build your Next.js app
       - run: npm run build
