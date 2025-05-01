@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  //output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Contributor {
+  // your internal UUID primary key
+  id String @id @default(uuid())
+
+  // the user’s GitHub ID (numeric) — unique across contributors
+  githubId Int @unique
+
+  // the user’s GitHub login (e.g. “octocat”)
+  login String
+
+  // their avatar URL, so you can show their photo
+  avatarUrl String?
+
+  // aggregate visit count across all their agents
+  visitCount Int @default(0)
+
+  // relation to the Agent rows they’ve created
+  agents Agent[]
+}
+
+model Agent {
+  // slug, e.g. “demo-bot”
+  id String @id
+
+  // foreign key to Contributor.id
+  creatorId String
+  creator   Contributor @relation(fields: [creatorId], references: [id])
+
+  // optional thumbnail for the gallery
+  imageUrl String?
+
+  // per‐agent visit count
+  visitCount Int @default(0)
+}
