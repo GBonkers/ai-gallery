@@ -40,6 +40,8 @@ export default function Home() {
                 src='/assets/TitleImage.png'
                 alt='AI Gallery Icon'
                 className='mt-2 h-full w-full object-contain'
+                width={176}
+                height={176}
               />
             </div>
             <div className='md:text-left'>
@@ -60,7 +62,7 @@ export default function Home() {
 
           <div className='flex justify-center gap-4'>
             <Link
-              href='/gallery'
+              href='/src/agents'
               className='rounded-md bg-[var(--color-brand)] px-6 py-3 font-medium text-white shadow transition hover:bg-[var(--color-brand-dark)]'
             >
               Browse Gallery
@@ -170,7 +172,9 @@ export default function Home() {
               <Image
                 src='/assets/Flowchart.png'
                 alt='Contribution Flowchart'
-                className='w-full rounded-md'
+                width={512}
+                height={114}
+                className='h-auto w-full object-contain'
               />
             </div>
             {/* List Content */}
@@ -253,8 +257,11 @@ export default function Home() {
                     <Image
                       src={`https://github.com/${c.username}.png`}
                       alt={`${c.username}'s avatar`}
-                      className='h-16 w-16 rounded-full border border-[var(--color-border)] object-cover shadow-sm'
+                      width={64}
+                      height={64}
+                      className='rounded-full border border-[var(--color-border)] object-cover shadow-sm'
                     />
+
                     <span className='text-sm font-medium text-[var(--color-text-primary)]'>
                       @{c.username}
                     </span>

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -31,7 +31,8 @@
     "react-particles": "^2.12.2",
     "stylelint": "^16.19.1",
     "stylelint-config-standard": "^38.0.0",
-    "stylelint-config-tailwindcss": "^1.0.0"
+    "stylelint-config-tailwindcss": "^1.0.0",
+    "webpack": "^5.99.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -39,6 +40,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/webpack-env": "^1.18.8",
     "@typescript-eslint/eslint-plugin": "^8.31.0",
     "@typescript-eslint/parser": "^8.31.0",
     "autoprefixer": "^10.4.21",

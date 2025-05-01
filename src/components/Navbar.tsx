@@ -44,7 +44,7 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className='hidden items-center space-x-8 md:flex'>
             <Link
-              href='/agents'
+              href='/src/agents'
               className='transition hover:text-[var(--color-brand)]'
             >
               Gallery
@@ -141,7 +141,7 @@ export default function Navbar() {
       {open && (
         <div className='bg-[var(--color-background)] md:hidden'>
           <Link
-            href='/agents'
+            href='/src/agents'
             className='block px-4 py-2 transition hover:bg-[var(--color-background-light)]'
             onClick={() => setOpen(false)}
           >
