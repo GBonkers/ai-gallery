@@ -62,7 +62,7 @@ export default function Home() {
 
           <div className='flex justify-center gap-4'>
             <Link
-              href='/src/agents'
+              href='/agents'
               className='rounded-md bg-[var(--color-brand)] px-6 py-3 font-medium text-white shadow transition hover:bg-[var(--color-brand-dark)]'
             >
               Browse Gallery

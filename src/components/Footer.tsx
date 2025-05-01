@@ -8,7 +8,7 @@ export default function Footer() {
       <div className='mx-auto max-w-6xl space-y-4 px-4 text-center sm:px-6 lg:px-8'>
         <nav className='flex justify-center gap-6'>
           <Link
-            href='/src/agents'
+            href='/agents'
             className='transition hover:text-[var(--color-brand)]'
           >
             Gallery
