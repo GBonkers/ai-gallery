@@ -10,7 +10,8 @@
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier --write .",
     "lint:style": "stylelint \"src/**/*.{css,scss}\"",
-    "sync:agents": "tsx scripts/sync-agents.ts"
+    "sync:agents": "tsx scripts/sync-agents.ts",
+    "sync:contributors": "tsx scripts/update-contributor-counts.ts"
   },
   "prepare": "husky install",
   "lint-staged": {

@@ -1,14 +1,16 @@
-// src/agents/demo-bot/Documentation.tsx
-export default function Documentation() {
+// src/agents/my-cool-bot/Demonstration.tsx
+export default function Demonstration() {
   return (
-    <section className='rounded-lg bg-green-50 p-6'>
+    <section className='rounded-lg bg-blue-50 p-6'>
       <h2 className='mb-2 text-2xl font-semibold text-black'>
-        Demo-Bot Documentation
+        My Cool Bot Demo
       </h2>
-      <p className='text-gray-700'>
-        This section contains instructions on how to use Demo-Bot. Write
-        Markdown-style docs here or include any JSX you like.
-      </p>
+      <div className='rounded border border-blue-200 p-4'>
+        <p className='text-blue-800'>
+          ▶️ Show a live demo, embed an iframe, or paste sample input/output
+          here.
+        </p>
+      </div>
     </section>
   );
 }

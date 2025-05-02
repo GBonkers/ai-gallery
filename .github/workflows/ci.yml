@@ -29,7 +29,7 @@ jobs:
 
       # Generate Prisma client
       - name: Generate Prisma Client
-        run: npx prisma generate
+        run: npx prisma generate --no-engine
 
       # Apply DB Migrations
       - name: Apply DB Migrations

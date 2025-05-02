@@ -1,5 +1,7 @@
+// src/components/AgentPage.tsx
 'use client';
-import { useState, useEffect } from 'react';
+
+import { useState, useEffect, useRef } from 'react';
 import type { FC } from 'react';
 import agents from '@/agents';
 
@@ -7,7 +9,6 @@ interface AgentPageProps {
   id: string;
 }
 
-// Define our tab metadata
 const TABS = [
   { key: 'demo', label: 'Demo', fallback: 'No demo yet.' },
   { key: 'docs', label: 'Documentation', fallback: 'No documentation yet.' },
@@ -18,21 +19,38 @@ type TabKey = (typeof TABS)[number]['key'];
 
 const AgentPage: FC<AgentPageProps> = ({ id }) => {
   const { Documentation, Demonstration, Visualization } = agents[id] || {};
-
+  const didBump = useRef(false);
   const [active, setActive] = useState<TabKey>('demo');
 
-  // on mount, restore from hash
+  // ——— Only bump once per session/tab ———
+  useEffect(() => {
+    if (didBump.current) return;
+
+    const storageKey = `agent-visited-${id}`;
+    // skip if we've already counted in this session
+    if (sessionStorage.getItem(storageKey)) return;
+
+    // mark as counted
+    sessionStorage.setItem(storageKey, 'true');
+    didBump.current = true;
+
+    // fire the POST to increment visitCount
+    fetch(`/api/agents/${id}`, { method: 'POST' }).catch((err) =>
+      console.error('Visit-count error', err),
+    );
+  }, [id]);
+
+  // ——— Hash-restore on mount ———
   useEffect(() => {
     const h = window.location.hash.slice(1) as TabKey;
     if (TABS.some((t) => t.key === h)) setActive(h);
   }, []);
 
-  // sync hash when active changes
+  // ——— Keep the URL hash in sync ———
   useEffect(() => {
     window.history.replaceState(null, '', `#${active}`);
   }, [active]);
 
-  // pick the right component for the active tab
   const Comp =
     active === 'demo'
       ? Demonstration
@@ -63,7 +81,6 @@ const AgentPage: FC<AgentPageProps> = ({ id }) => {
         {/* Active pane */}
         <div className='space-y-6'>
           {Comp ? (
-            // Render the React component via JSX, not by calling it
             <Comp />
           ) : (
             <p className='text-center'>
