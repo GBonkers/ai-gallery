@@ -11,7 +11,8 @@
     "format": "prettier --write .",
     "lint:style": "stylelint \"src/**/*.{css,scss}\"",
     "sync:agents": "tsx scripts/sync-agents.ts",
-    "sync:contributors": "tsx scripts/update-contributor-counts.ts"
+    "sync:contributors": "tsx scripts/update-contributor-counts.ts",
+    "postinstall": "prisma generate"
   },
   "prepare": "husky install",
   "lint-staged": {
