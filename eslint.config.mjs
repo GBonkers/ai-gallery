@@ -26,6 +26,7 @@ const eslintConfig = [
       '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/no-unnecessary-type-constraint': 'off',
       '@typescript-eslint/no-unsafe-function-type': 'off',
+      'react/no-unescaped-entities': 'off',
     },
   },
 ];

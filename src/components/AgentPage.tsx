@@ -1,4 +1,3 @@
-// src/components/AgentPage.tsx
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -22,41 +21,26 @@ const AgentPage: FC<AgentPageProps> = ({ id }) => {
   const didBump = useRef(false);
   const [active, setActive] = useState<TabKey>('demo');
 
-  // ——— Only bump once per session/tab ———
+  // Count visit once per session
   useEffect(() => {
     if (didBump.current) return;
-
     const storageKey = `agent-visited-${id}`;
-    // skip if we've already counted in this session
     if (sessionStorage.getItem(storageKey)) return;
-
-    // mark as counted
     sessionStorage.setItem(storageKey, 'true');
     didBump.current = true;
-
-    // fire the POST to increment visitCount
-    fetch(`/api/agents/${id}`, { method: 'POST' }).catch((err) =>
-      console.error('Visit-count error', err),
-    );
+    fetch(`/api/agents/${id}`, { method: 'POST' }).catch(console.error);
   }, [id]);
 
-  // ——— Hash-restore on mount ———
+  // Restore tab from hash
   useEffect(() => {
     const h = window.location.hash.slice(1) as TabKey;
     if (TABS.some((t) => t.key === h)) setActive(h);
   }, []);
 
-  // ——— Keep the URL hash in sync ———
+  // Sync URL hash
   useEffect(() => {
     window.history.replaceState(null, '', `#${active}`);
   }, [active]);
-
-  const Comp =
-    active === 'demo'
-      ? Demonstration
-      : active === 'docs'
-        ? Documentation
-        : Visualization;
 
   return (
     <div className='min-h-screen bg-[var(--color-background-light)] text-[var(--color-text-primary)]'>
@@ -78,15 +62,35 @@ const AgentPage: FC<AgentPageProps> = ({ id }) => {
           ))}
         </div>
 
-        {/* Active pane */}
+        {/* All tabs mounted; only one visible */}
         <div className='space-y-6'>
-          {Comp ? (
-            <Comp />
-          ) : (
-            <p className='text-center'>
-              {TABS.find((t) => t.key === active)!.fallback}
-            </p>
-          )}
+          <div style={{ display: active === 'demo' ? 'block' : 'none' }}>
+            {Demonstration ? (
+              <Demonstration />
+            ) : (
+              <p className='text-center'>
+                {TABS.find((t) => t.key === 'demo')!.fallback}
+              </p>
+            )}
+          </div>
+          <div style={{ display: active === 'docs' ? 'block' : 'none' }}>
+            {Documentation ? (
+              <Documentation />
+            ) : (
+              <p className='text-center'>
+                {TABS.find((t) => t.key === 'docs')!.fallback}
+              </p>
+            )}
+          </div>
+          <div style={{ display: active === 'viz' ? 'block' : 'none' }}>
+            {Visualization ? (
+              <Visualization />
+            ) : (
+              <p className='text-center'>
+                {TABS.find((t) => t.key === 'viz')!.fallback}
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </div>
