@@ -16,16 +16,6 @@ import { BsFileEarmarkPlay } from 'react-icons/bs';
 
 const contributors = [
   { username: 'GBonkers', profile: 'https://github.com/GBonkers' }, //Creator of the platform
-  { username: 'octocat', profile: 'https://github.com/octocat' }, //Temporary Random placeholder profiles
-  {
-    username: 'devplaceholder1',
-    profile: 'https://github.com/devplaceholder1',
-  },
-  { username: 'ai-builder', profile: 'https://github.com/ai-builder' },
-  { username: 'codewizard', profile: 'https://github.com/codewizard' },
-  { username: 'neuralnerd', profile: 'https://github.com/neuralnerd' },
-  { username: 'uxbot', profile: 'https://github.com/uxbot' },
-  { username: 'bytecrafter', profile: 'https://github.com/bytecrafter' },
 ];
 
 export default function Home() {
